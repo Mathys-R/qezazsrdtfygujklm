@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Ajouter un Élève - GradeMaster{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 0 auto;">
+    <h2>Ajouter un Élève</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="first_name">Prénom</label>
+            <input type="text" id="first_name" name="first_name" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Nom</label>
+            <input type="text" id="last_name" name="last_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="{{ url_for('main.index') }}" class="btn" style="color: var(--text-secondary);">Annuler</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

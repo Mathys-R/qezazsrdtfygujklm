@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gestion de Notes{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('main.index') }}" class="logo">GradeMaster</a>
+            <div class="nav-links">
+                <a href="{{ url_for('main.index') }}">Accueil</a>
+                <a href="{{ url_for('main.add_student') }}">Ajouter Élève</a>
+                <a href="{{ url_for('main.add_subject') }}">Ajouter Matière</a>
+                <a href="{{ url_for('main.add_grade') }}" class="btn btn-primary"
+                    style="color: white; margin-left: 1rem;">Ajouter Note</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
