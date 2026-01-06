@@ -9,5 +9,5 @@ def log_message(message):
 if __name__ == '__main__':
     log_message('Application started')
     while True:
-        time.sleep(300)
-        log_message('5 minutes have passed')
+        time.sleep(60)
+        log_message(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - Application is running")
